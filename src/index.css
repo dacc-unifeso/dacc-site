@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    --color-dacc-bg: #050507;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    overflow-x: hidden;
+    background-color: var(--color-dacc-bg);
+    color: white;
+  }
+  body::selection {
+    background-color: #d4af37;
+    color: black;
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 6s ease infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(1rem); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInFromBottom10 {
+  from { opacity: 0; transform: translateY(2.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn95 {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-in {
+  animation-duration: var(--duration, 500ms);
+  animation-fill-mode: both;
+}
+.animate-in.fade-in { animation-name: fadeIn; }
+.animate-in.slide-in-from-right { animation-name: slideInFromRight; }
+.animate-in.slide-in-from-bottom-10 { animation-name: slideInFromBottom10; }
+.animate-in.zoom-in-95 { animation-name: zoomIn95; }
+.duration-500 { --duration: 500ms; }
+.duration-700 { --duration: 700ms; }
+.duration-1000 { --duration: 1000ms; }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #3d004c;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.hero-title-glow {
+  text-shadow:
+    0 0 12px rgba(212, 175, 55, 0.25),
+    0 0 36px rgba(212, 175, 55, 0.2),
+    0 0 60px rgba(61, 0, 76, 0.45);
+}
