@@ -1,4 +1,4 @@
-# Portal DACC Elite
+# Portal DACC
 
 Portal oficial do **DACC** (Diretório Acadêmico de Ciência da Computação) do Unifeso.
 
