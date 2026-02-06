@@ -2,7 +2,7 @@
 
 Portal oficial do **DACC** (Diretório Acadêmico de Ciência da Computação) do Unifeso.
 
-## Pilha
+## Stack
 
 - React (componentes funcionais + Hooks)
 - Tailwind CSS v4
