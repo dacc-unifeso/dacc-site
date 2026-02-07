@@ -23,6 +23,7 @@ function resolveCommand(cmd) {
     case 'localizacao':
       return 'Unifeso - Campus Quinta do Paraíso está localizada em Av. Delfim Moreira, 2486-3022 - Prata; 25976-340 Teresópolis, Brazil, Rio de Janeiro.'
     case 'cafe':
+    case 'café':
       return '☕ Na sala da Coordenação de Ciência da Computação.'
     case 'clear':
       return null
