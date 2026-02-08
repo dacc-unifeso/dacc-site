@@ -9,7 +9,7 @@ export const MEMBERS = [
     photo: '/yuri.png',
     ln: 'https://www.linkedin.com/in/domingues-yuri/',
   },
-  { n: 'Carol Diaz', r: 'Vice-Presidente', photo: '/carol.png' },
+  { n: 'Carol Diaz', r: 'Vice-Presidente', photo: '/carol.png', ln: 'https://www.linkedin.com/in/carolina-diaz-580952264/' },
   {
     n: 'João Pedro Leal',
     r: 'Diretor Geral Financeiro',

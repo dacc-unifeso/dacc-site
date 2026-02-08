@@ -26,12 +26,14 @@ export function ProjectsView() {
             <h4 className="text-xl font-black mb-2 uppercase text-white">{p.title}</h4>
             <p className="text-[#d4af37] text-[10px] font-mono mb-4 uppercase font-bold">{p.tech}</p>
             <p className="text-gray-400 text-sm leading-relaxed mb-8">{p.desc}</p>
-            <button
-              type="button"
+            <a
+              href="https://github.com/dacc-unifeso/dacc-site"
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center gap-2 text-white font-black text-[10px] tracking-widest uppercase hover:text-[#d4af37] transition"
             >
               Saber Mais <ExternalLink size={14} />
-            </button>
+            </a>
           </div>
         ))}
       </div>
