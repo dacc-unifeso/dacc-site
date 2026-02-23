@@ -44,6 +44,14 @@ export function Footer() {
           >
             GitHub
           </a>
+          <a
+            href={BRAND.discord}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition"
+          >
+            Discord
+          </a>
           <div className="flex items-center gap-2 text-[#22c55e]">
             <div className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
             <span>Online</span>

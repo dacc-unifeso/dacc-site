@@ -8,6 +8,7 @@ export const BRAND = {
   university: 'Unifeso',
   whatsapp: 'https://chat.whatsapp.com/G1b34L1oTMzETfooUBU80N',
   instagram: 'https://www.instagram.com/dacc_unifeso/',
+  discord: 'https://discord.gg/z3NcaGF4Pb',
   github: 'https://github.com/dacc-unifeso',
   email: 'dacc.unifeso@gmail.com',
   logo: 'logo-dacc.png',
