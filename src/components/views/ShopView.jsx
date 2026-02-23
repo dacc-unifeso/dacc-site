@@ -52,7 +52,7 @@ export function ShopView() {
             <div className="flex justify-between items-center bg-black/40 p-4 rounded-xl border border-white/5">
               <span className="text-xl font-black text-[#d4af37]">R$ {p.price}</span>
               <a
-                href={`https://wa.me/${BRAND.whatsapp}?text=Quero encomendar: ${p.name}`}
+                href={`https://wa.me/${BRAND.whatsappContact}?text=Quero encomendar: ${p.name}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-4 bg-white text-black rounded-lg hover:bg-[#d4af37] transition-all"

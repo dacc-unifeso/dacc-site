@@ -37,6 +37,14 @@ export function Footer() {
             Instagram
           </a>
           <a
+            href={BRAND.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition"
+          >
+            WhatsApp
+          </a>
+          <a
             href={BRAND.github}
             target="_blank"
             rel="noopener noreferrer"
