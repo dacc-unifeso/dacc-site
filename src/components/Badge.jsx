@@ -10,8 +10,8 @@ export function Badge({ children, variant = 'gold' }) {
     <span
       className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em] border shadow-sm ${
         variant === 'gold'
-          ? 'bg-[#d4af37]/10 border-[#d4af37]/30 text-[#d4af37]'
-          : 'bg-[#3d004c]/20 border-[#3d004c]/40 text-purple-300'
+          ? 'bg-[var(--accent-gold-soft)] border-[var(--border)] text-[var(--accent-gold)]'
+          : 'bg-[var(--accent-purple-soft)] border-[var(--accent-purple)]/40 text-[var(--accent-purple)]'
       }`}
     >
       {children}

@@ -15,22 +15,23 @@ export function ProjectsView() {
         {PROJECTS.map((p, i) => (
           <div
             key={i}
-            className="p-8 bg-white/[0.02] border border-white/5 rounded-3xl hover:border-[#d4af37]/40 transition-all"
+            className="p-8 border border-[var(--border)] rounded-3xl hover:border-[var(--accent-gold)]/40 transition-all"
+            style={{ backgroundColor: 'var(--card-bg)' }}
           >
             <div className="flex justify-between items-start mb-6">
-              <Code size={32} className="text-[#d4af37]" />
-              <div className="flex items-center gap-1 text-[#d4af37] text-xs font-bold">
-                <Star size={14} fill="#d4af37" /> {p.stars}
+              <Code size={32} className="text-[var(--accent-gold)]" />
+              <div className="flex items-center gap-1 text-[var(--accent-gold)] text-xs font-bold">
+                <Star size={14} style={{ fill: 'var(--accent-gold)' }} /> {p.stars}
               </div>
             </div>
-            <h4 className="text-xl font-black mb-2 uppercase text-white">{p.title}</h4>
-            <p className="text-[#d4af37] text-[10px] font-mono mb-4 uppercase font-bold">{p.tech}</p>
-            <p className="text-gray-400 text-sm leading-relaxed mb-8">{p.desc}</p>
+            <h4 className="text-xl font-black mb-2 uppercase text-[var(--text)]">{p.title}</h4>
+            <p className="text-[var(--accent-gold)] text-[10px] font-mono mb-4 uppercase font-bold">{p.tech}</p>
+            <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-8">{p.desc}</p>
             <a
               href="https://github.com/dacc-unifeso/dacc-site"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 text-white font-black text-[10px] tracking-widest uppercase hover:text-[#d4af37] transition"
+              className="flex items-center gap-2 text-[var(--text)] font-black text-[10px] tracking-widest uppercase hover:text-[var(--accent-gold)] transition"
             >
               Saber Mais <ExternalLink size={14} />
             </a>

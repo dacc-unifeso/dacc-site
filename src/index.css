@@ -1,23 +1,78 @@
 @import 'tailwindcss';
 
+/* Fallback para primeiro paint (igual ao dark) */
+:root {
+  --page-bg: #0f0f12;
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --accent-gold: #d4af37;
+  --accent-gold-soft: rgba(212, 175, 55, 0.15);
+  --accent-purple: #3d004c;
+  --accent-purple-soft: rgba(61, 0, 76, 0.25);
+  --border: rgba(212, 175, 55, 0.2);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --overlay-bg: rgba(0, 0, 0, 0.8);
+  --focus-ring: #d4af37;
+  --status-online: #22c55e;
+  --selection-bg: #d4af37;
+  --selection-text: #0f0f12;
+}
+
+/* Dark theme (default): fundo suavizado para acessibilidade (#050507 → #0f0f12) */
+[data-theme="dark"] {
+  --page-bg: #0f0f12;
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --accent-gold: #d4af37;
+  --accent-gold-soft: rgba(212, 175, 55, 0.15);
+  --accent-purple: #3d004c;
+  --accent-purple-soft: rgba(61, 0, 76, 0.25);
+  --border: rgba(212, 175, 55, 0.2);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --overlay-bg: rgba(0, 0, 0, 0.8);
+  --focus-ring: #d4af37;
+  --status-online: #22c55e;
+  --selection-bg: #d4af37;
+  --selection-text: #0f0f12;
+}
+
+/* Light theme: contraste acessível (WCAG) */
+[data-theme="light"] {
+  --page-bg: #f8f9fa;
+  --text: #18181b;
+  --text-muted: #52525b;
+  --accent-gold: #b8860b;
+  --accent-gold-soft: rgba(184, 134, 11, 0.12);
+  --accent-purple: #5c1a6b;
+  --accent-purple-soft: rgba(92, 26, 107, 0.15);
+  --border: rgba(0, 0, 0, 0.12);
+  --card-bg: rgba(0, 0, 0, 0.04);
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --focus-ring: #b8860b;
+  --status-online: #16a34a;
+  --selection-bg: #b8860b;
+  --selection-text: #fff;
+}
+
 @layer base {
-  :root {
-    --color-dacc-bg: #050507;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
+  :root { color-scheme: dark; }
+  [data-theme="light"] { color-scheme: light; }
+  html { scroll-behavior: smooth; }
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: ui-sans-serif, system-ui, sans-serif;
     overflow-x: hidden;
-    background-color: var(--color-dacc-bg);
-    color: white;
+    background-color: var(--page-bg);
+    color: var(--text);
   }
   body::selection {
-    background-color: #d4af37;
-    color: black;
+    background-color: var(--selection-bg);
+    color: var(--selection-text);
+  }
+  *:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
   }
 }
 
@@ -60,16 +115,12 @@
 .duration-700 { --duration: 700ms; }
 .duration-1000 { --duration: 1000ms; }
 
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #3d004c;
+  background: var(--accent-purple);
   border-radius: 10px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--border);
 }
 
 .hero-title-glow {
@@ -77,4 +128,7 @@
     0 0 12px rgba(212, 175, 55, 0.25),
     0 0 36px rgba(212, 175, 55, 0.2),
     0 0 60px rgba(61, 0, 76, 0.45);
+}
+[data-theme="light"] .hero-title-glow {
+  text-shadow: 0 0 20px rgba(92, 26, 107, 0.2);
 }

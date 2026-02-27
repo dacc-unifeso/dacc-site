@@ -13,12 +13,12 @@ export function ShopView() {
       <div className="mb-16">
         <SectionHeader badge={<Badge>DACC Wear</Badge>} title="Lojinha Oficial" />
 
-        <div className="mt-8 p-6 bg-[#3d004c]/20 border border-[#d4af37]/30 rounded-2xl flex flex-col md:flex-row items-center gap-4 max-w-3xl">
-          <div className="w-12 h-12 bg-[#d4af37] rounded-full flex items-center justify-center text-black flex-shrink-0">
+        <div className="mt-8 p-6 border rounded-2xl flex flex-col md:flex-row items-center gap-4 max-w-3xl" style={{ backgroundColor: 'var(--accent-purple-soft)', borderColor: 'var(--border)' }}>
+          <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-[var(--selection-text)]" style={{ backgroundColor: 'var(--accent-gold)' }}>
             <ShieldCheck size={24} />
           </div>
-          <p className="text-sm text-gray-300 font-medium">
-            <span className="text-[#d4af37] font-black uppercase tracking-widest mr-2 underline decoration-2 underline-offset-4">
+          <p className="text-sm text-[var(--text-muted)] font-medium">
+            <span className="text-[var(--accent-gold)] font-black uppercase tracking-widest mr-2 underline decoration-2 underline-offset-4">
               Compromisso Ético:
             </span>
             Todo o valor arrecadado é integralmente reinvestido em projetos, infraestrutura e
@@ -31,31 +31,34 @@ export function ShopView() {
         {PRODUCTS.map((p, i) => (
           <div
             key={i}
-            className="group bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-6 hover:border-[#d4af37]/50 transition-all"
+            className="group border border-[var(--border)] rounded-[2.5rem] p-6 hover:border-[var(--accent-gold)]/50 transition-all"
+            style={{ backgroundColor: 'var(--card-bg)' }}
           >
-            <div className="aspect-square bg-black rounded-[1.5rem] mb-6 flex items-center justify-center border border-white/5 relative overflow-hidden">
-              <div className="text-white/5 font-black italic text-center p-6 uppercase tracking-[0.4em] select-none text-[8px]">
+            <div className="aspect-square rounded-[1.5rem] mb-6 flex items-center justify-center border border-[var(--border)] relative overflow-hidden" style={{ backgroundColor: 'var(--overlay-bg)' }}>
+              <div className="font-black italic text-center p-6 uppercase tracking-[0.4em] select-none text-[8px] opacity-20" style={{ color: 'var(--text)' }}>
                 Propriedade do DACC Unifeso
               </div>
               <ShoppingBag
                 size={40}
-                className="absolute text-[#d4af37]/20 group-hover:scale-110 transition-transform"
+                className="absolute opacity-20 group-hover:scale-110 transition-transform"
+                style={{ color: 'var(--accent-gold)' }}
               />
-              <div className="absolute top-4 left-4 bg-[#3d004c] border border-[#d4af37]/20 text-[#d4af37] px-3 py-1 rounded-full text-[9px] font-black uppercase">
+              <div className="absolute top-4 left-4 border px-3 py-1 rounded-full text-[9px] font-black uppercase" style={{ backgroundColor: 'var(--accent-purple)', borderColor: 'var(--border)', color: 'var(--accent-gold)' }}>
                 {p.tag}
               </div>
             </div>
-            <h4 className="text-xl font-black mb-1 text-white">{p.name}</h4>
-            <p className="text-gray-500 text-[9px] uppercase font-mono tracking-widest mb-6">
+            <h4 className="text-xl font-black mb-1 text-[var(--text)]">{p.name}</h4>
+            <p className="text-[var(--text-muted)] text-[9px] uppercase font-mono tracking-widest mb-6">
               {p.category}
             </p>
-            <div className="flex justify-between items-center bg-black/40 p-4 rounded-xl border border-white/5">
-              <span className="text-xl font-black text-[#d4af37]">R$ {p.price}</span>
+            <div className="flex justify-between items-center p-4 rounded-xl border border-[var(--border)]" style={{ backgroundColor: 'var(--card-bg)' }}>
+              <span className="text-xl font-black text-[var(--accent-gold)]">R$ {p.price}</span>
               <a
                 href={`https://wa.me/${BRAND.whatsappContact}?text=Quero encomendar: ${p.name}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-white text-black rounded-lg hover:bg-[#d4af37] transition-all"
+                className="p-4 rounded-lg transition-all text-[var(--selection-text)] hover:opacity-90"
+                style={{ backgroundColor: 'var(--accent-gold)' }}
                 aria-label={`Encomendar ${p.name} via WhatsApp`}
               >
                 <Send size={18} />

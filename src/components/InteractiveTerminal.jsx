@@ -1,6 +1,5 @@
 /**
  * Terminal interativo (CLI) na Home com comandos de ajuda e navegação.
- * Mantém o design original: fundo preto/80, borda dourada, scroll automático e custom-scrollbar.
  */
 import { useState, useEffect, useRef } from 'react'
 
@@ -58,27 +57,27 @@ export function InteractiveTerminal() {
   }
 
   return (
-    <div className="w-full max-w-xl mx-auto bg-black/80 backdrop-blur-md border border-[#d4af37]/30 rounded-xl overflow-hidden shadow-2xl font-mono text-xs text-left">
-      <div className="bg-[#1a1a1c] px-4 py-2 flex items-center justify-between border-b border-white/5">
+    <div className="w-full max-w-xl mx-auto backdrop-blur-md border border-[var(--border)] rounded-xl overflow-hidden shadow-2xl font-mono text-xs text-left" style={{ backgroundColor: 'var(--overlay-bg)' }}>
+      <div className="px-4 py-2 flex items-center justify-between border-b border-[var(--border)]" style={{ backgroundColor: 'var(--card-bg)' }}>
         <div className="flex gap-1.5">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/30" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/30" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/30" />
         </div>
-        <span className="text-gray-500 text-[10px] uppercase tracking-widest font-bold">
+        <span className="text-[var(--text-muted)] text-[10px] uppercase tracking-widest font-bold">
           terminal@dacc-unifeso
         </span>
       </div>
-      <div ref={scrollRef} className="p-6 h-44 overflow-y-auto text-purple-400 custom-scrollbar">
+      <div ref={scrollRef} className="p-6 h-44 overflow-y-auto custom-scrollbar" style={{ color: 'var(--text-muted)' }}>
         {history.map((line, i) => (
-          <div key={i} className={`mb-1 ${line.startsWith('λ') ? 'text-[#d4af37]' : ''}`}>
+          <div key={i} className={`mb-1 ${line.startsWith('λ') ? 'text-[var(--accent-gold)]' : ''}`}>
             {line}
           </div>
         ))}
         <form onSubmit={handleCommand} className="flex gap-2 mt-2">
-          <span className="text-[#d4af37] font-bold">λ</span>
+          <span className="text-[var(--accent-gold)] font-bold">λ</span>
           <input
-            className="bg-transparent border-none outline-none flex-1 text-white caret-[#d4af37]"
+            className="bg-transparent border-none outline-none flex-1 text-[var(--text)] caret-[var(--accent-gold)]"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             autoFocus

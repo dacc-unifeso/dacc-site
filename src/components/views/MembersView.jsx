@@ -20,7 +20,8 @@ export function MembersView() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`LinkedIn de ${m.n}`}
-                className="w-full aspect-square bg-[#3d004c]/10 rounded-full mb-8 border border-white/10 group-hover:border-[#d4af37] transition-all flex items-center justify-center relative overflow-hidden"
+                className="w-full aspect-square rounded-full mb-8 border border-[var(--border)] group-hover:border-[var(--accent-gold)] transition-all flex items-center justify-center relative overflow-hidden"
+                style={{ backgroundColor: 'var(--accent-purple-soft)' }}
               >
                 {m.photo ? (
                   <img
@@ -32,13 +33,17 @@ export function MembersView() {
                 ) : (
                   <Users
                     size={64}
-                    className="text-[#d4af37]/20 group-hover:text-[#d4af37] transition-colors"
+                    className="opacity-20 group-hover:opacity-100 transition-colors"
+                    style={{ color: 'var(--accent-gold)' }}
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3d004c]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--accent-purple)]/40 to-transparent" />
               </a>
             ) : (
-              <div className="w-full aspect-square bg-[#3d004c]/10 rounded-full mb-8 border border-white/10 group-hover:border-[#d4af37] transition-all flex items-center justify-center relative overflow-hidden">
+              <div
+                className="w-full aspect-square rounded-full mb-8 border border-[var(--border)] group-hover:border-[var(--accent-gold)] transition-all flex items-center justify-center relative overflow-hidden"
+                style={{ backgroundColor: 'var(--accent-purple-soft)' }}
+              >
                 {m.photo ? (
                   <img
                     src={m.photo}
@@ -49,14 +54,15 @@ export function MembersView() {
                 ) : (
                   <Users
                     size={64}
-                    className="text-[#d4af37]/20 group-hover:text-[#d4af37] transition-colors"
+                    className="opacity-20 group-hover:opacity-100 transition-colors"
+                    style={{ color: 'var(--accent-gold)' }}
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3d004c]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--accent-purple)]/40 to-transparent" />
               </div>
             )}
-            <h4 className="text-2xl font-black text-white">{m.n}</h4>
-            <p className="text-[#d4af37] font-mono text-[10px] uppercase tracking-widest mt-1 font-bold">
+            <h4 className="text-2xl font-black text-[var(--text)]">{m.n}</h4>
+            <p className="text-[var(--accent-gold)] font-mono text-[10px] uppercase tracking-widest mt-1 font-bold">
               {m.r}
             </p>
           </div>

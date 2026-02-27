@@ -19,15 +19,16 @@ export function WikiView() {
           return (
             <div
               key={i}
-              className="p-10 bg-white/[0.03] border border-white/5 rounded-3xl hover:border-[#d4af37]/30 transition-all group"
+              className="p-10 border border-[var(--border)] rounded-3xl hover:border-[var(--accent-gold)]/30 transition-all group"
+              style={{ backgroundColor: 'var(--card-bg)' }}
             >
-              <div className="w-14 h-14 bg-[#3d004c]/30 rounded-2xl flex items-center justify-center text-[#d4af37] mb-6 group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-[var(--accent-gold)] mb-6 group-hover:scale-110 transition-transform" style={{ backgroundColor: 'var(--accent-purple-soft)' }}>
                 {Icon ? <Icon size={24} /> : null}
               </div>
-              <h4 className="text-2xl font-black mb-4 uppercase tracking-tight text-white">
+              <h4 className="text-2xl font-black mb-4 uppercase tracking-tight text-[var(--text)]">
                 {item.title}
               </h4>
-              <p className="text-gray-400 leading-relaxed font-medium">{item.desc}</p>
+              <p className="text-[var(--text-muted)] leading-relaxed font-medium">{item.desc}</p>
             </div>
           )
         })}
