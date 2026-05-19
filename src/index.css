@@ -47,7 +47,7 @@
   --accent-purple-soft: rgba(92, 26, 107, 0.15);
   --border: rgba(0, 0, 0, 0.12);
   --card-bg: rgba(0, 0, 0, 0.04);
-  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --overlay-bg: rgba(73, 48, 73, 0.9);
   --focus-ring: #b8860b;
   --status-online: #16a34a;
   --selection-bg: #b8860b;
@@ -75,6 +75,7 @@
     outline-offset: 2px;
   }
 }
+
 
 @keyframes gradient {
   0% { background-position: 0% 50%; }

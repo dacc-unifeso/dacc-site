@@ -40,4 +40,16 @@ export const MEMBERS = [
     photo: '/Miriam.jpeg',
     ln: 'https://www.linkedin.com/in/mriamssantos/',
   },
+  {
+    n: 'Nathan Salles',
+    r: 'Auxiliar de Esportes',
+    photo: '/nathan.png',
+    ln: 'https://www.linkedin.com/in/nathan-salles-80b85b26b/',
+  },
+  {
+    n: 'Silvia Monteiro',
+    r: 'Auxiliar de Produtos e Vendas',
+    photo: '/silvia.png',
+    ln: 'https://www.linkedin.com/in/silvia-monteiro-08192829b/',
+  }
 ]
