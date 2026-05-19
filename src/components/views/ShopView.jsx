@@ -35,13 +35,10 @@ export function ShopView() {
             style={{ backgroundColor: 'var(--card-bg)' }}
           >
             <div className="aspect-square rounded-[1.5rem] mb-6 flex items-center justify-center border border-[var(--border)] relative overflow-hidden" style={{ backgroundColor: 'var(--overlay-bg)' }}>
-              <div className="font-black italic text-center p-6 uppercase tracking-[0.4em] select-none text-[8px] opacity-20" style={{ color: 'var(--text)' }}>
-                Propriedade do DACC Unifeso
-              </div>
-              <ShoppingBag
-                size={40}
-                className="absolute opacity-20 group-hover:scale-110 transition-transform"
-                style={{ color: 'var(--accent-gold)' }}
+              <img
+                src={p.image}
+                alt={p.name}
+                className="h-full w-full object-cover"
               />
               <div className="absolute top-4 left-4 border px-3 py-1 rounded-full text-[9px] font-black uppercase" style={{ backgroundColor: 'var(--accent-purple)', borderColor: 'var(--border)', color: 'var(--accent-gold)' }}>
                 {p.tag}
