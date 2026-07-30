@@ -6,8 +6,35 @@ import { Cpu, Coffee, Info, MapPin } from 'lucide-react'
 import { Badge } from '../Badge'
 import { SectionHeader } from '../SectionHeader'
 import { SURVIVAL_GUIDE } from '../../config'
+import { Link } from 'react-router-dom'
 
 const ICON_MAP = { Cpu, Coffee, Info, MapPin }
+
+export function ClickableHeading({ type: Tag = 'h2', url, children }) {
+  return (
+    <Tag className="text-2xl font-black mb-4 uppercase tracking-tighter text-[var(--text)]">
+      <Link to={url}/>
+      <a
+      href={url}
+        className="group relative inline-block pb-1 text-[var(--text)]"
+      >
+        {children}
+        <span className="absolute
+                         bottom-0
+                         left-0
+                         h-[2px]
+                         w-full
+                         origin-left
+                         scale-x-0
+                         bg-[var(--text)]
+                         transition-transform
+                         duration-300
+                         ease-out
+                         group-hover:scale-x-100"/>
+      </a>
+    </Tag>
+  )
+}
 
 export function WikiView() {
   return (
@@ -25,9 +52,9 @@ export function WikiView() {
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-[var(--accent-gold)] mb-6 group-hover:scale-110 transition-transform" style={{ backgroundColor: 'var(--accent-purple-soft)' }}>
                 {Icon ? <Icon size={24} /> : null}
               </div>
-              <h4 className="text-2xl font-black mb-4 uppercase tracking-tight text-[var(--text)]">
+              <ClickableHeading type='h2' url={item.url}>
                 {item.title}
-              </h4>
+              </ClickableHeading>
               <p className="text-[var(--text-muted)] leading-relaxed font-medium">{item.desc}</p>
             </div>
           )
