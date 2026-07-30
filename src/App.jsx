@@ -4,8 +4,11 @@
  */
 import { useState, useEffect } from 'react'
 import { NAV_ITEMS } from './config'
+import { SURVIVAL_GUIDE } from './config'
 import { Navbar, Footer } from './components'
 import { HomeView, WikiView, ProjectsView, ShopView, MembersView } from './components/views'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { IntroductionArticle } from './components/views'
 
 const VIEW_MAP = {
   home: HomeView,
@@ -22,7 +25,7 @@ function getInitialTheme() {
   return (localStorage.getItem(STORAGE_KEY) || 'dark') === 'light' ? 'light' : 'dark'
 }
 
-export default function App() {
+function Main() {
   const [activePage, setActivePage] = useState('home')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [theme, setTheme] = useState(getInitialTheme)
@@ -82,6 +85,18 @@ export default function App() {
       </main>
 
       <Footer />
+
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Main/>}/>
+        <Route path={SURVIVAL_GUIDE[1].url} element={<IntroductionArticle/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
