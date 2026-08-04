@@ -1,8 +1,7 @@
 export function Article({ children, className = "" }) {
     return (
-        <main
+        <div
             className={`
-                min-h-screen
                 bg-[var(--page-bg)]
                 px-4
                 py-10
@@ -24,6 +23,6 @@ export function Article({ children, className = "" }) {
             >
                 {children}
             </article>
-        </main>
+        </div>
     );
 }

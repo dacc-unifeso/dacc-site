@@ -3,7 +3,7 @@
  * @description Portal Oficial do Diretório Acadêmico de Ciência da Computação - Unifeso.
  */
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import { NAV_ITEMS, SURVIVAL_GUIDE } from './config'
 import { Navbar, Footer } from './components'
 import {
@@ -33,9 +33,13 @@ function getInitialTheme() {
 }
 
 function Main() {
+  const location = useLocation()
+  const navigate = useNavigate()
   const [activePage, setActivePage] = useState('home')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [theme, setTheme] = useState(getInitialTheme)
+
+  const isArticlePage = location.pathname === CONTEUDO_TECNICO_URL
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -44,15 +48,20 @@ function Main() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [activePage])
+  }, [activePage, location.pathname])
+
+  const handleSetActivePage = (page) => {
+    setActivePage(page)
+    if (location.pathname !== '/') navigate('/')
+  }
 
   const View = VIEW_MAP[activePage] ?? HomeView
 
   return (
     <div className="min-h-screen bg-[var(--page-bg)] text-[var(--text)] font-sans antialiased overflow-x-hidden">
       <Navbar
-        activePage={activePage}
-        setActivePage={setActivePage}
+        activePage={isArticlePage ? null : activePage}
+        setActivePage={handleSetActivePage}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
         theme={theme}
@@ -76,13 +85,13 @@ function Main() {
                 key={id}
                 type="button"
                 onClick={() => {
-                  setActivePage(id)
+                  handleSetActivePage(id)
                   setIsMenuOpen(false)
                 }}
                 className={`nav-link w-full justify-start min-h-12 px-5 ${
-                  activePage === id ? 'nav-link-active' : ''
+                  !isArticlePage && activePage === id ? 'nav-link-active' : ''
                 }`}
-                aria-current={activePage === id ? 'page' : undefined}
+                aria-current={!isArticlePage && activePage === id ? 'page' : undefined}
               >
                 {label}
               </button>
@@ -92,8 +101,10 @@ function Main() {
       )}
 
       <main className="relative pt-20">
-        {activePage === 'home' ? (
-          <HomeView onNavigate={setActivePage} />
+        {isArticlePage ? (
+          <IntroductionArticle />
+        ) : activePage === 'home' ? (
+          <HomeView onNavigate={handleSetActivePage} />
         ) : (
           <View />
         )}
@@ -109,7 +120,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path={CONTEUDO_TECNICO_URL} element={<IntroductionArticle />} />
+        <Route path={CONTEUDO_TECNICO_URL} element={<Main />} />
       </Routes>
     </BrowserRouter>
   )

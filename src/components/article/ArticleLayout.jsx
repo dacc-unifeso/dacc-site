@@ -9,8 +9,8 @@ export function ArticleLayout({ summary, children }) {
             {summary && (
                 <aside
                     className="
-                        custom-scrollbar lg:sticky lg:top-6
-                        lg:max-h-[calc(100vh-3rem)] lg:overflow-y-auto
+                        custom-scrollbar lg:sticky lg:top-24
+                        lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto
                     "
                 >
                     {summary}
