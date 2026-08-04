@@ -31,7 +31,7 @@ export function ShopView() {
         {PRODUCTS.map((p, i) => (
           <div
             key={i}
-            className="group border border-[var(--border)] rounded-[2.5rem] p-6 hover:border-[var(--accent-gold)]/50 transition-all"
+            className="group border border-[var(--border)] rounded-[2.5rem] p-6 hover:border-[var(--border-strong)] transition-all shadow-[var(--shadow-sm)]"
             style={{ backgroundColor: 'var(--card-bg)' }}
           >
             <div className="aspect-square rounded-[1.5rem] mb-6 flex items-center justify-center border border-[var(--border)] relative overflow-hidden" style={{ backgroundColor: 'var(--overlay-bg)' }}>
@@ -40,7 +40,14 @@ export function ShopView() {
                 alt={p.name}
                 className="h-full w-full object-cover"
               />
-              <div className="absolute top-4 left-4 border px-3 py-1 rounded-full text-[9px] font-black uppercase" style={{ backgroundColor: 'var(--accent-purple)', borderColor: 'var(--border)', color: 'var(--accent-gold)' }}>
+              <div
+                className="absolute top-4 left-4 border px-3 py-1 rounded-full text-[9px] font-black uppercase"
+                style={{
+                  backgroundColor: 'var(--accent-gold-soft)',
+                  borderColor: 'var(--border)',
+                  color: 'var(--accent-gold)',
+                }}
+              >
                 {p.tag}
               </div>
             </div>
@@ -54,8 +61,7 @@ export function ShopView() {
                 href={`https://wa.me/${BRAND.whatsappContact}?text=Quero encomendar: ${p.name}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 rounded-lg transition-all text-[var(--selection-text)] hover:opacity-90"
-                style={{ backgroundColor: 'var(--accent-gold)' }}
+                className="btn btn-primary min-h-11 min-w-11 !p-0"
                 aria-label={`Encomendar ${p.name} via WhatsApp`}
               >
                 <Send size={18} />

@@ -15,7 +15,7 @@ export function ProjectsView() {
         {PROJECTS.map((p, i) => (
           <div
             key={i}
-            className="p-8 border border-[var(--border)] rounded-3xl hover:border-[var(--accent-gold)]/40 transition-all"
+            className="p-8 border border-[var(--border)] rounded-3xl hover:border-[var(--border-strong)] transition-all shadow-[var(--shadow-sm)]"
             style={{ backgroundColor: 'var(--card-bg)' }}
           >
             <div className="flex justify-between items-start mb-6">

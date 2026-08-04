@@ -3,12 +3,17 @@
  * @description Portal Oficial do Diretório Acadêmico de Ciência da Computação - Unifeso.
  */
 import { useState, useEffect } from 'react'
-import { NAV_ITEMS } from './config'
-import { SURVIVAL_GUIDE } from './config'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { NAV_ITEMS, SURVIVAL_GUIDE } from './config'
 import { Navbar, Footer } from './components'
-import { HomeView, WikiView, ProjectsView, ShopView, MembersView } from './components/views'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import { IntroductionArticle } from './components/views'
+import {
+  HomeView,
+  WikiView,
+  ProjectsView,
+  ShopView,
+  MembersView,
+  IntroductionArticle,
+} from './components/views'
 
 const VIEW_MAP = {
   home: HomeView,
@@ -19,6 +24,8 @@ const VIEW_MAP = {
 }
 
 const STORAGE_KEY = 'dacc-theme'
+const CONTEUDO_TECNICO_URL =
+  SURVIVAL_GUIDE.find((item) => item.url?.startsWith('/'))?.url ?? '/conteudo-tecnico'
 
 function getInitialTheme() {
   if (typeof window === 'undefined') return 'dark'
@@ -54,11 +61,16 @@ function Main() {
 
       {isMenuOpen && (
         <div
-          className="fixed inset-0 z-40 lg:hidden backdrop-blur-sm pt-24 px-6"
+          className="fixed inset-0 z-40 lg:hidden backdrop-blur-md pt-24 px-5"
           style={{ backgroundColor: 'var(--overlay-bg)' }}
-          aria-hidden
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu de navegação"
         >
-          <div className="flex flex-col gap-2">
+          <div
+            className="flex flex-col gap-1.5 p-3 rounded-2xl border border-[var(--border)] shadow-[var(--shadow-md)] max-w-md mx-auto"
+            style={{ backgroundColor: 'var(--surface)' }}
+          >
             {NAV_ITEMS.map(({ id, label }) => (
               <button
                 key={id}
@@ -67,11 +79,10 @@ function Main() {
                   setActivePage(id)
                   setIsMenuOpen(false)
                 }}
-                className={`px-5 py-3 rounded-xl text-left text-[11px] font-black tracking-widest uppercase w-full ${
-                  activePage === id
-                    ? 'bg-[var(--accent-purple)] text-[var(--accent-gold)] border border-[var(--border)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text)]'
+                className={`nav-link w-full justify-start min-h-12 px-5 ${
+                  activePage === id ? 'nav-link-active' : ''
                 }`}
+                aria-current={activePage === id ? 'page' : undefined}
               >
                 {label}
               </button>
@@ -81,11 +92,14 @@ function Main() {
       )}
 
       <main className="relative pt-20">
-        <View />
+        {activePage === 'home' ? (
+          <HomeView onNavigate={setActivePage} />
+        ) : (
+          <View />
+        )}
       </main>
 
       <Footer />
-
     </div>
   )
 }
@@ -94,8 +108,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Main/>}/>
-        <Route path={SURVIVAL_GUIDE[1].url} element={<IntroductionArticle/>}/>
+        <Route path="/" element={<Main />} />
+        <Route path={CONTEUDO_TECNICO_URL} element={<IntroductionArticle />} />
       </Routes>
     </BrowserRouter>
   )

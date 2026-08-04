@@ -1,5 +1,5 @@
 /**
- * @constant {Array<{ title: string, icon: string, desc: string }>}
+ * @constant {Array<{ title: string, icon: string, desc: string, url?: string }>}
  */
 export const SURVIVAL_GUIDE = [
   {
@@ -13,5 +13,15 @@ export const SURVIVAL_GUIDE = [
     icon: 'Cpu',
     desc: 'A matéria tá ficando difícil amigão? Calma que esse setor te ajuda.',
     url: '/conteudo-tecnico',
-  }
+  },
+  {
+    title: 'Onde tomar café',
+    icon: 'Coffee',
+    desc: 'Na sala da Coordenação de Ciência da Computação. O ponto de encontro oficial entre bugs e cafeína.',
+  },
+  {
+    title: 'Campus Quinta do Paraíso',
+    icon: 'MapPin',
+    desc: 'Av. Delfim Moreira, 2486 — Prata, Teresópolis/RJ. Se perder, pergunte no grupo do DACC.',
+  },
 ]

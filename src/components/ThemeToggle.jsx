@@ -5,8 +5,8 @@ import { Sun, Moon } from 'lucide-react'
 
 /**
  * @param {Object} props
- * @param {'dark'|'light'} props.theme - Tema atual
- * @param {(theme: 'dark'|'light') => void} props.onThemeChange - Callback ao alternar
+ * @param {'dark'|'light'} props.theme
+ * @param {(theme: 'dark'|'light') => void} props.onThemeChange
  */
 export function ThemeToggle({ theme, onThemeChange }) {
   const isDark = theme === 'dark'
@@ -16,11 +16,11 @@ export function ThemeToggle({ theme, onThemeChange }) {
     <button
       type="button"
       onClick={toggle}
-      className="p-2.5 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] text-[var(--accent-gold)] hover:opacity-90 transition-opacity"
+      className="btn btn-icon"
       aria-label={isDark ? 'Ativar tema claro' : 'Ativar tema escuro'}
       title={isDark ? 'Tema claro' : 'Tema escuro'}
     >
-      {isDark ? <Sun size={22} aria-hidden /> : <Moon size={22} aria-hidden />}
+      {isDark ? <Sun size={20} aria-hidden /> : <Moon size={20} aria-hidden />}
     </button>
   )
 }
