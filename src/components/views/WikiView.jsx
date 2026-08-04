@@ -11,27 +11,28 @@ import { Link } from 'react-router-dom'
 const ICON_MAP = { Cpu, Coffee, Info, MapPin }
 
 export function ClickableHeading({ type: Tag = 'h2', url, children }) {
+  const isInternal = url?.startsWith('/')
+
+  const className = 'group relative inline-block pb-1 text-[var(--text)]'
+  const underline = (
+    <span
+      className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-[var(--text)] transition-transform duration-300 ease-out group-hover:scale-x-100"
+    />
+  )
+
   return (
     <Tag className="text-2xl font-black mb-4 uppercase tracking-tighter text-[var(--text)]">
-      <Link to={url}/>
-      <a
-      href={url}
-        className="group relative inline-block pb-1 text-[var(--text)]"
-      >
-        {children}
-        <span className="absolute
-                         bottom-0
-                         left-0
-                         h-[2px]
-                         w-full
-                         origin-left
-                         scale-x-0
-                         bg-[var(--text)]
-                         transition-transform
-                         duration-300
-                         ease-out
-                         group-hover:scale-x-100"/>
-      </a>
+      {isInternal ? (
+        <Link to={url} className={className}>
+          {children}
+          {underline}
+        </Link>
+      ) : (
+        <a href={url} className={className}>
+          {children}
+          {underline}
+        </a>
+      )}
     </Tag>
   )
 }
