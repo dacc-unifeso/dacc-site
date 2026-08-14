@@ -14,6 +14,7 @@ import {
   MembersView,
   IntroductionArticle,
 } from './components/views'
+import { ArticlePages, ARTICLES, BASE_URL } from './pages/articles'
 
 const VIEW_MAP = {
   home: HomeView,
@@ -120,7 +121,14 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path={CONTEUDO_TECNICO_URL} element={<Main />} />
+        <Route path={BASE_URL} element={<ArticlePages/>} />
+        {
+            ARTICLES.map(({ id, path, Component}) => {
+                return (
+                    <Route key={id} path={path} element={<Component/>}/>
+                )
+            })
+        }
       </Routes>
     </BrowserRouter>
   )
