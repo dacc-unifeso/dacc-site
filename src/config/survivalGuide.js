@@ -1,3 +1,4 @@
+import { BASE_URL } from '../pages/articles'
 /**
  * @constant {Array<{ title: string, icon: string, desc: string, url?: string }>}
  */
@@ -12,7 +13,7 @@ export const SURVIVAL_GUIDE = [
     title: 'Conteúdo Técnico',
     icon: 'Cpu',
     desc: 'A matéria tá ficando difícil amigão? Calma que esse setor te ajuda.',
-    url: '/conteudo-tecnico',
+    url: BASE_URL,
   },
   {
     title: 'Onde tomar café',

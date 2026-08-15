@@ -247,12 +247,10 @@ export function IntroductionArticle() {
                             base nisso, decidi adotar a linguagem C como padrão para os artigos, então tenha como pré-requisito aprender
                             pelo menos a sintaxe C para poder acompanhar os artigos.
                         </ArticleParagraph>
-                        <ArticleParagraph>
-                            <ArticleQuote>
-                                "Mas seu André, C é muito complicado! Não tenho tempo para isso, preciso estudar o que vai me garantir
-                                    um trabalho o mais rápido possível."
-                            </ArticleQuote>
-                        </ArticleParagraph>
+                          <ArticleQuote>
+                              "Mas seu André, C é muito complicado! Não tenho tempo para isso, preciso estudar o que vai me garantir
+                                  um trabalho o mais rápido possível."
+                          </ArticleQuote>
                         <ArticleParagraph>
                             Não se preocupe, faço questão de que os <i>snippets</i> sejam escritos também em uma pseudo-linguagem muito conhecida
                             que foi criada justamente para o ensino: Portugol. Se você aprendeu Portugol com o nosso guru da programação brasileira
